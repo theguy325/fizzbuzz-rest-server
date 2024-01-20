@@ -59,8 +59,19 @@ def fizz_buzz(int1, int2, limit, str1, str2):
     Returns:
         json: Resulting list of strings based on Fizz-Buzz logic.
     """
+    final_result = ""
     result_list = [fizz_buzz_logic(i, int1, int2, str1, str2) for i in range(1, limit + 1)]
-    return jsonify({"result": result_list})
+    result_list[limit - 1] += "."
+    # return jsonify({"result": result_list})
+    for num in range(0, limit - 1):
+        result_list[num] += ","
+
+    for each in result_list:
+        final_result += each
+
+    return final_result
+
+
 
 
 @app.route('/statistics', methods=['GET'])
