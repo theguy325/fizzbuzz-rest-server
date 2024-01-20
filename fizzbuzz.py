@@ -78,3 +78,7 @@ def statistics():
         "hits": stats[most_used_request]
     }
     return jsonify(stat_result)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
